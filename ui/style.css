@@ -1,0 +1,28 @@
+@font-face{
+ font-family:'digital';
+ src: url('/digital.ttf');
+}
+
+body {
+  background-color: #222;
+}
+
+#main {
+  font-family: digital;
+  background-color: #222;
+  color: rgb(172, 180, 93);
+}
+
+#time {
+  font-size: 25vw;
+  line-height: 0.8;
+}
+
+.label {
+  font-size: 15vw;
+}
+
+#subtitle {
+  font-size: 8vw;
+}
+

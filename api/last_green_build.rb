@@ -39,23 +39,14 @@ class LastGreenBuild
     @skip_ssl.nil? ? OpenSSL::SSL::VERIFY_PEER : OpenSSL::SSL::VERIFY_NONE
   end
 
-  def human_readable_time_since(time)
-    secs = (Time.now - time).to_i
-    [[60, :seconds], [60, :minutes], [24, :hours], [1000, :days]].map{ |count, name|
-      if secs > 0
-        secs, n = secs.divmod(count)
-        "#{n.to_i} #{name}"
-      end
-    }.compact.reverse.join(' ')
-  end
-
   def call(env)
     token = fetch_token
     job_info = fetch_job_info(token)
     last_completed = job_info['finished_build']['end_time']
 
     res = Rack::Response.new
-    res.write "#{human_readable_time_since(last_completed)}\n...since the last green build"
+    res.set_header('Access-Control-Allow-Origin', '*')
+    res.write last_completed
     res.finish
   end
 end

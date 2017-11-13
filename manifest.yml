@@ -1,0 +1,6 @@
+---
+applications:
+- name: last_green_build_api
+  path: api
+- name: last_green_build
+  path: ui
