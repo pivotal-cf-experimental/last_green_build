@@ -1,5 +1,5 @@
 function fetchTimeOfLastGreenBuild() {
-  return fetch('http://last-green-build-api.cfapps.pez.pivotal.io').then(function(response) {
+  return fetch('http://last-green-build-api.cfapps.io').then(function(response) {
     return response.text();
   });
 }
