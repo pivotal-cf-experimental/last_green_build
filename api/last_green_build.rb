@@ -15,7 +15,7 @@ class LastGreenBuild
   end
 
   def fetch_token
-    uri = URI("https://#{@target}/api/v1/teams/main/auth/token")
+    uri = URI("https://#{@target}/auth/basic/token?team_name=main")
     req = Net::HTTP::Get.new(uri)
     req.basic_auth(@username, @password)
     res = make_request(req)
